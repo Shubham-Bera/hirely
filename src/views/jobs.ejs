@@ -1,0 +1,43 @@
+<% if(locals.role == 'jobseeker'){ %>
+<div class="container-fluid mt-5 jobContainer">
+    <% jobList.forEach(job => { %>
+      <div class="card">
+        <div class="card-body">
+            <span class="actives">Actively hiring <i class="fas fa-chart-line ml-1"></i></span>
+          <h3 class="card-title"><%= job.companyName %></h3>
+          <p class="card-text"><span class="jobcategory"><%= job.jobCategory %></span> | <span class="jobrole"> <%= job.jobRole %> </span></p>
+          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= job.jobLocation %></p>
+          <p class="card-text"><i class="fa-solid fa-indian-rupee-sign"></i> <%= job.salary %></p>
+          <div class="skills">
+            <% job.skills.forEach(skill => { %>
+              <span class="skill-badge"><%= skill %></span>
+            <% }) %>
+          </div>
+  
+          <a href="/jobs/<%= job.id %>" class="view-btn mt-3 d-block text-center">View details</a>
+        </div>
+      </div>
+    <% }); %>
+  </div> 
+<% }else{ %> 
+  <div class="container-fluid mt-5 jobContainer">
+    <% jobList.forEach(job => { %>
+      <div class="card">
+        <div class="card-body">
+            <span class="actives">Actively hiring <i class="fas fa-chart-line ml-1"></i></span>
+          <h3 class="card-title"><%= job.companyName %></h3>
+          <p class="card-text"><span class="jobcategory"><%= job.jobCategory %></span> | <span class="jobrole"> <%= job.jobRole %> </span></p>
+          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= job.jobLocation %></p>
+          <p class="card-text"><i class="fa-solid fa-indian-rupee-sign"></i> <%= job.salary %></p>
+          <div class="skills">
+            <% job.skills.forEach(skill => { %>
+              <span class="skill-badge"><%= skill %></span>
+            <% }) %>
+          </div>
+  
+          <a href="/jobs/<%= job.id %>" class="view-btn mt-3 d-block text-center">View details</a>
+        </div>
+      </div>
+    <% }); %>
+  </div> 
+<% } %>

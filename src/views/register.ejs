@@ -1,0 +1,47 @@
+<div class="register-wrapper d-flex  justify-content-center">
+    
+    <div class="register-box shadow">
+      <h2 class="register-title text-center mb-4">Create an Account</h2>
+
+      <div class="role-toggle text-center mb-4">
+        <span id="jobSeekerLabel" class="role-label active">Job Seeker</span>
+        <label class="switch mx-2">
+          <input type="checkbox" id="roleSwitch">
+          <span class="slider round"></span>
+        </label>
+        <span id="recruiterLabel" class="role-label">Recruiter</span>
+      </div>
+    <% if (error) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= error %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+      <form action="/register" method="POST" class="register-form">
+        <input type="hidden" name="role" id="userRole" value="jobseeker">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="name" id="name" required autocomplete="off">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" name="email" id="email" required autocomplete="off">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="confirm" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" name="confirm" id="confirm" required>
+        </div>
+
+        <button type="submit" class="btn btn-apply w-100 mt-3">Register</button>
+      </form>
+    </div>
+  </div>
+

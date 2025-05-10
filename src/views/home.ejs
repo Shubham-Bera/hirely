@@ -1,0 +1,19 @@
+<div class="home mt-5 container-fluid">
+    <div class="text">
+        <h1 class="mt-5">Secure your career path with <a class="navbar-brand" href="/">Hirely</a>.</h1>
+        <h2 id="feature-text" class="feature-heading"></h2>
+        <h3>Get Discovered. Get Hired.</h3>
+        <% if (!locals.userEmail) { %>
+        <div class="homeButtons">
+            <button id="jobSeek" class="homebtns" onclick="window.location.href='/jobs'" >I'm a Job Seeker</button>
+            <button id="jobRecruit" class="homebtns">I'm a Recruiter</button>
+        </div>
+        <% }else{ %>
+            <h2 class="welcome-message">Welcome, <%= locals.userName %>!</h2>
+        <% } %>
+    </div>
+    <div class="graphic">
+        <!-- <img src="jobGraphic.webp" alt="jobGraphic"> -->
+        <img src="jobPortal1.png" alt="jobGraphic">
+    </div>
+</div> 

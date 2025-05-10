@@ -1,0 +1,38 @@
+
+  <div class="container d-flex justify-content-center auth-container">
+    <div class="card p-4 auth-card">
+      <h2 class="text-center mb-4 loginTitle">Login</h2>
+
+      <!-- Role Toggle Switch -->
+      <div class="role-toggle mb-4 text-center">
+        <span id="loginRoleText">Logging in as <strong>Job Seeker</strong></span>
+        <label class="switch ms-3 ml-2">
+          <input type="checkbox" id="loginRoleSwitch">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <% if (error) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= error %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+      <!-- Login Form -->
+      <form action="/login" method="POST">
+        <input type="hidden" name="role" id="loginRoleInput" value="jobseeker">
+        
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-apply w-100">Login</button>
+      </form>
+      <p class="registerhere">Don't have an account?&nbsp;<a href="/register" class="registerLink">Register Here</a></p>
+    </div>
+  </div>

@@ -1,0 +1,58 @@
+<div class="job-post-container">
+    <h2>Post a Job</h2>
+    <form id="jobPostForm" action="/recruiter/post-job" method="POST" enctype="multipart/form-data" class="job-post-form">
+        <h2>Post a New Job</h2>
+      
+        <!-- Category -->
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <option value="tech">Tech</option>
+          <option value="non-tech">Non-Tech</option>
+        </select>
+      
+        <!-- Job Designation -->
+        <label for="designation">Job Designation</label>
+        <select id="designation" name="designation" required>
+          <option value="">Select Designation</option>
+          <!-- Options populated by JS -->
+        </select>
+      
+        <!-- Job Location -->
+        <label for="location">Job Location</label>
+        <input type="text" id="location" name="location" required />
+      
+        <!-- Company Name -->
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" name="companyName" required />
+      
+        <!-- Company Logo -->
+        <label for="companyLogo">Company Logo</label>
+        <input type="file" id="companyLogo" name="companyLogo" accept="image/*" required />
+      
+        <!-- Salary -->
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" name="salary" required />
+      
+        <!-- Total Positions -->
+        <label for="positions">Total Positions</label>
+        <input type="number" id="positions" name="positions" required min="1" />
+      
+        <!-- Skills -->
+        <div class="form-group">
+            <label for="skills">Skills Required</label>
+            <select id="skills" name="skills[]" multiple required class="form-control">
+                
+            </select>
+            <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple skills</small>
+        </div>
+      
+        <!-- Apply By -->
+        <label for="applyBy">Apply By</label>
+        <input type="date" id="applyBy" name="applyBy" required />
+      
+        <button type="submit">Post Job</button>
+      </form>
+      
+  </div>
+
