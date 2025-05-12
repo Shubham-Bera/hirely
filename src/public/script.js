@@ -14,56 +14,6 @@
   }, false);
 })();
 
-const designationOptions = {
-  tech: ['Software Engineer', 'Frontend Developer', 'Backend Developer', 'DevOps Engineer'],
-  "non-tech": ['HR Executive', 'Sales Manager', 'Content Writer', 'Business Analyst']
-};
-let techSkills = window.techSkills || [];
-let nonTechSkills = window.nonTechSkills || [];
-
-  const categorySelect = document.getElementById('category');
-  const skillsSelect = document.getElementById('skills');
-
-  function updateSkillsDropdown(category) {
-    skillsSelect.innerHTML = ''; // Clear previous skills
-
-    let skillsArray = [];
-
-    if (category === 'tech') {
-      skillsArray = techSkills;
-    } else if (category === 'non-tech') {
-      skillsArray = nonTechSkills;
-    }
-
-    skillsArray.forEach(skill => {
-      const option = document.createElement('option');
-      option.value = skill;
-      option.textContent = skill;
-      skillsSelect.appendChild(option);
-    });
-  }
-
-  // Initial population (if needed)
-  categorySelect.addEventListener('change', function () {
-    updateSkillsDropdown(this.value);
-  });
-document.getElementById('category')?.addEventListener('change', function () {
-  const category = this.value;
-  const designationSelect = document.getElementById('designation');
-  designationSelect.innerHTML = '<option value="">Select Designation</option>';
-
-  if (designationOptions[category]) {
-    designationOptions[category].forEach(role => {
-      const option = document.createElement('option');
-      option.value = role;
-      option.textContent = role;
-      designationSelect.appendChild(option);
-    });
-  }
-});
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const roleInput = document.getElementById("loginRoleInput");
   const roleSwitch = document.getElementById("loginRoleSwitch");
@@ -135,5 +85,59 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// populate tech and non-tech skill set on change of category 
+let techSkills = window.techSkills || [];
+let nonTechSkills = window.nonTechSkills || [];
+
+  const categorySelect = document.getElementById('category');
+  const skillsSelect = document.getElementById('skills');
+
+  function updateSkillsDropdown(category) {
+    skillsSelect.innerHTML = ''; // Clear previous skills
+
+    let skillsArray = [];
+
+    if (category === 'tech') {
+      skillsArray = techSkills;
+    } else if (category === 'non-tech') {
+      skillsArray = nonTechSkills;
+    }
+
+    skillsArray.forEach(skill => {
+      const option = document.createElement('option');
+      option.value = skill;
+      option.textContent = skill;
+      skillsSelect.appendChild(option);
+    });
+  }
+
+  // Initial population (if needed)
+  categorySelect?.addEventListener('change', function () {
+    updateSkillsDropdown(this.value);
+  });
+
+// populate designations on change of category 
+const designationOptions = {
+  tech: ['Software Engineer', 'Frontend Developer', 'Backend Developer', 'DevOps Engineer'],
+  "non-tech": ['HR Executive', 'Sales Manager', 'Content Writer', 'Business Analyst']
+};
+document.getElementById('category')?.addEventListener('change', function () {
+  const category = this.value;
+  const designationSelect = document.getElementById('designation');
+  designationSelect.innerHTML = '<option value="">Select Designation</option>';
+
+  if (designationOptions[category]) {
+    designationOptions[category].forEach(role => {
+      const option = document.createElement('option');
+      option.value = role;
+      option.textContent = role;
+      designationSelect.appendChild(option);
+    });
+  }
+});
+
+document.getElementById('salary').addEventListener('input', function () {
+  this.value = this.value.replace(/[^0-9]/g, ''); // Removes non-numeric characters
+});
 
 

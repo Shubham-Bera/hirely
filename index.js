@@ -5,7 +5,11 @@ import JobPortalController from "./src/controllers/jobPortal.controller.js";
 import UserController from "./src/controllers/user.controller.js";
 import { auth } from "./src/middleware/auth.middleware.js";
 import session from "express-session";
+import { uploadFile } from "./src/middleware/fileUpload.middleware.js";
 const app = express();
+
+
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve("src","public")));
@@ -35,4 +39,6 @@ app.get("/",JobPortalController.renderHomePage);
 app.get("/jobs",JobPortalController.renderJobs);
 app.get("/jobs/:id",auth, JobPortalController.renderJobDesc);
 app.get("/postJobs",JobPortalController.renderPostJob);
+
+app.post("/recruiter/post-job",uploadFile.single('companyLogo'), JobPortalController.postJob)
 export default app; 

@@ -87,6 +87,7 @@ body {
     border-color: var(--primary-color);
     box-shadow: inset 0 0 5px rgba(79, 28, 81, 0.3);
     outline: none;
+    caret-color: var(--contrast);
   }
 
   .home{
@@ -535,7 +536,7 @@ input:checked + .slider.round:before {
 
 /* Post JOB page */
 .job-post-form {
-  background: #fff;
+  background: var(--light-contrast);
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
   max-width: 600px;
@@ -547,7 +548,8 @@ input:checked + .slider.round:before {
 .job-post-form h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: #2c3e50;
+  color: var(--primary-color);
+  font-weight: bold;
   text-align: center;
 }
 
@@ -555,7 +557,7 @@ input:checked + .slider.round:before {
   display: block;
   margin-top: 1rem;
   font-weight: 500;
-  color: #34495e;
+  color: var(--contrast);
 }
 
 .job-post-form input,
@@ -572,7 +574,7 @@ input:checked + .slider.round:before {
   margin-top: 2rem;
   width: 100%;
   padding: 0.8rem;
-  background: #3498db;
+  background: var(--dark-bg-color);
   border: none;
   color: #fff;
   font-weight: bold;
@@ -583,5 +585,25 @@ input:checked + .slider.round:before {
 }
 
 .job-post-form button:hover {
-  background: #2980b9;
+  background:var(--contrast) ;
+}
+
+input.form-control:focus,
+select.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: inset 0 0 5px rgba(79, 28, 81, 0.3);
+  outline: none;
+}
+
+/* Error page CSS */
+.errordiv{
+  /* border: 2px solid white; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.errorgif{
+  width: 50%;
+  height: 50%;
 }

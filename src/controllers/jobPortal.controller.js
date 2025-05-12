@@ -1,4 +1,5 @@
 import { jobList, techSkills, nonTechSkills } from "../models/jobPortal.model.js";
+import { body, validationResult } from "express-validator";
 export default class JobPortalController{
 
     static renderHomePage(req,res){
@@ -19,7 +20,6 @@ export default class JobPortalController{
         });
         
     }
-
     static renderJobDesc(req,res){     
         const jobId = parseInt(req.params.id);
         const job = jobList.find(j => j.id === jobId);
@@ -30,4 +30,11 @@ export default class JobPortalController{
             res.status(404).send("Job not found");
         }
     }
+
+    static postJob(req,res){
+        console.log(req.headers['content-type']);
+        console.log(req.body);
+        res.send(req.body);
+    }
+
 } 
